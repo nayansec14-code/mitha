@@ -1,0 +1,1513 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Mithas — premium Indian sweets, festive modaks, gift boxes and home delivery in Dahisar East, Mumbai."
+    />
+    <title>Mithas | Tradition Meets Taste</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --cream: #fbf6eb;
+        --paper: #fffaf1;
+        --teal: #003f3e;
+        --teal2: #075c58;
+        --gold: #b98635;
+        --gold2: #d5aa63;
+        --ink: #173b3a;
+        --muted: #6c716c;
+        --line: rgba(0, 63, 62, 0.14);
+        --shadow: 0 18px 45px rgba(32, 45, 37, 0.12);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--cream);
+        color: var(--ink);
+        font-family: Inter, system-ui, sans-serif;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      .topbar {
+        background: var(--teal);
+        color: #fff;
+        padding: 8px 5%;
+        font-size: 11px;
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      .topbar span {
+        opacity: 0.92;
+      }
+      .topbar a {
+        color: inherit;
+      }
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: rgba(255, 250, 241, 0.96);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 13px 5%;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .brand img {
+        width: 58px;
+        height: 58px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+      .brand strong {
+        font:
+          700 32px "Cormorant Garamond",
+          serif;
+        letter-spacing: 2px;
+      }
+      .brand small {
+        display: block;
+        font-size: 8px;
+        letter-spacing: 2px;
+        color: #7b7e73;
+      }
+      .links {
+        display: flex;
+        gap: 25px;
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .links a {
+        position: relative;
+      }
+      .links a:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 100%;
+        bottom: -8px;
+        height: 2px;
+        background: var(--gold);
+        transition: 0.25s;
+      }
+      .links a:hover:after {
+        right: 0;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 0;
+        border-radius: 999px;
+        padding: 13px 21px;
+        background: var(--teal);
+        color: #fff;
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.25s;
+        box-shadow: 0 7px 18px rgba(0, 63, 62, 0.15);
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+        background: var(--teal2);
+      }
+      .btn.gold {
+        background: linear-gradient(135deg, var(--gold), #d09a42);
+        color: #fff;
+      }
+      .hero {
+        min-height: 470px;
+        display: grid;
+        grid-template-columns: 43% 57%;
+        background: var(--paper);
+        overflow: hidden;
+      }
+      .hero-copy {
+        padding: 75px 8%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: radial-gradient(
+            circle at 20% 20%,
+            rgba(185, 134, 53, 0.09),
+            transparent 30%
+          ),
+          repeating-linear-gradient(
+            45deg,
+            transparent 0 12px,
+            rgba(185, 134, 53, 0.018) 12px 13px
+          );
+      }
+      .eyebrow {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 20px;
+        color: var(--gold);
+        letter-spacing: 2px;
+      }
+      .hero h1 {
+        font:
+          700 clamp(52px, 6vw, 82px) / 1.08 "Cormorant Garamond",
+          serif;
+        margin: 16px 0;
+        color: var(--teal);
+        letter-spacing: -1px;
+      }
+      .hero p {
+        max-width: 520px;
+        line-height: 1.7;
+        color: #535e58;
+        margin: 0 0 25px;
+      }
+      .hero-photo {
+        min-height: 470px;
+        transition: background-image 0.55s ease-in-out;
+        background: url("assets/hero-4k.png") center/cover no-repeat;
+        position: relative;
+      }
+      .hero-dots {
+        position: absolute;
+        bottom: 16px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 7px;
+        z-index: 5;
+      }
+      .hero-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.65);
+        cursor: pointer;
+      }
+      .hero-dot.active {
+        background: #fff;
+        transform: scale(1.25);
+      }
+      .hero-photo:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 250, 241, 0.15),
+          transparent 35%
+        );
+      }
+      .strip {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        background: #f5eddd;
+        border-block: 1px solid var(--line);
+        padding: 18px 5%;
+        text-align: center;
+      }
+      .strip div {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 17px;
+        font-weight: 700;
+      }
+      .strip b {
+        display: block;
+        font-family: Inter;
+        font-size: 19px;
+        margin-bottom: 5px;
+      }
+      .section {
+        padding: 70px 5%;
+      }
+      .heading {
+        text-align: center;
+        margin-bottom: 34px;
+      }
+      .heading span {
+        color: var(--gold);
+        letter-spacing: 4px;
+        font-size: 11px;
+        font-weight: 700;
+      }
+      .heading h2 {
+        font:
+          700 46px "Cormorant Garamond",
+          serif;
+        margin: 8px 0;
+        color: var(--teal);
+      }
+      .heading p {
+        margin: 0;
+        color: var(--muted);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 13px;
+      }
+      .card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 6px 20px rgba(40, 50, 40, 0.05);
+        transition: 0.3s;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow);
+      }
+      .card img {
+        width: 100%;
+        aspect-ratio: 1.15;
+        object-fit: cover;
+        display: block;
+      }
+      .card h3 {
+        font:
+          700 17px "Cormorant Garamond",
+          serif;
+        text-align: center;
+        margin: 11px 7px 14px;
+      }
+      .festive {
+        background: #f3e7d3;
+      }
+      .feature-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+      .feature {
+        position: relative;
+        min-height: 340px;
+        border-radius: 16px;
+        overflow: hidden;
+        background-size: cover;
+        background-position: center;
+        box-shadow: var(--shadow);
+      }
+      .feature:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          90deg,
+          rgba(8, 33, 32, 0.82),
+          rgba(8, 33, 32, 0.08) 75%
+        );
+      }
+      .feature.gift:after {
+        background: linear-gradient(
+          90deg,
+          rgba(255, 250, 241, 0.98) 0%,
+          rgba(255, 250, 241, 0.94) 38%,
+          rgba(255, 250, 241, 0.48) 62%,
+          rgba(255, 250, 241, 0.05) 86%
+        );
+      }
+      .feature-content {
+        position: relative;
+        z-index: 2;
+        max-width: 58%;
+        padding: 34px;
+        color: #fff;
+      }
+      .gift .feature-content {
+        max-width: 54%;
+        padding-right: 18px;
+      }
+      .gift .feature-content {
+        color: var(--teal);
+      }
+      .feature h3 {
+        font:
+          700 37px/1 "Cormorant Garamond",
+          serif;
+        margin: 0 0 12px;
+      }
+      .feature p {
+        line-height: 1.6;
+        font-size: 14px;
+      }
+      .checks {
+        padding: 0;
+        list-style: none;
+        line-height: 2;
+        font-size: 13px;
+      }
+      .checks li:before {
+        content: "✓";
+        margin-right: 9px;
+        color: var(--gold2);
+        font-weight: 800;
+      }
+      .offers {
+        background: #fffaf1;
+      }
+      .offer-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      .offer {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        background: #f6eee0;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 14px;
+        transition: 0.25s;
+      }
+      .offer:hover {
+        transform: translateY(-3px);
+      }
+      .offer img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+      .pill {
+        display: inline-block;
+        background: #e83e55;
+        color: #fff;
+        border-radius: 20px;
+        padding: 4px 9px;
+        font-size: 9px;
+        font-weight: 800;
+      }
+      .offer h3 {
+        font:
+          700 24px "Cormorant Garamond",
+          serif;
+        margin: 6px 0;
+      }
+      .offer p {
+        font-size: 12px;
+        color: var(--muted);
+        margin: 0 0 10px;
+      }
+      .about {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 50px;
+        align-items: center;
+      }
+      .about img {
+        width: 100%;
+        object-fit: cover;
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+      }
+      .about h2 {
+        font:
+          700 48px "Cormorant Garamond",
+          serif;
+        color: var(--teal);
+        margin: 8px 0;
+      }
+      .about p {
+        line-height: 1.8;
+        color: var(--muted);
+      }
+      .qualities {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 20px;
+      }
+      .quality {
+        padding: 13px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: #fff;
+      }
+      .quality b {
+        font-size: 13px;
+      }
+      .delivery {
+        background: #f0e3ce;
+        padding: 28px 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+      }
+      .delivery h3 {
+        font:
+          700 31px "Cormorant Garamond",
+          serif;
+        margin: 0;
+      }
+      .delivery p {
+        margin: 5px 0 0;
+        color: var(--muted);
+      }
+      footer {
+        background: var(--teal);
+        color: #fff;
+        padding: 55px 5% 25px;
+      }
+      .foot {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr 1.4fr 1fr;
+        gap: 40px;
+      }
+      .foot h3 {
+        font:
+          700 27px "Cormorant Garamond",
+          serif;
+        margin: 0 0 13px;
+      }
+      .foot p,
+      .foot a {
+        font-size: 12px;
+        line-height: 1.9;
+        color: rgba(255, 255, 255, 0.78);
+      }
+      .foot a {
+        display: block;
+      }
+      .copyright {
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        margin-top: 35px;
+        padding-top: 18px;
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.65);
+        display: flex;
+        justify-content: space-between;
+      }
+      .modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 50;
+        padding: 20px;
+      }
+      .modal.open {
+        display: flex;
+      }
+      .modal-box {
+        background: var(--paper);
+        border-radius: 18px;
+        padding: 30px;
+        max-width: 460px;
+        width: 100%;
+        box-shadow: var(--shadow);
+        position: relative;
+      }
+      .close {
+        position: absolute;
+        right: 18px;
+        top: 15px;
+        border: 0;
+        background: none;
+        font-size: 25px;
+        cursor: pointer;
+      }
+      .modal h2 {
+        font:
+          700 34px "Cormorant Garamond",
+          serif;
+        color: var(--teal);
+        margin-top: 0;
+      }
+      .modal input,
+      .modal textarea,
+      .modal select {
+        width: 100%;
+        padding: 13px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        margin: 7px 0 12px;
+        background: #fff;
+        font: inherit;
+      }
+      .modal label {
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .mobile-menu {
+        display: none;
+        border: 0;
+        background: none;
+        font-size: 24px;
+      }
+
+      .product {
+        text-align: center;
+        padding-bottom: 14px;
+      }
+      .product h3 {
+        margin-bottom: 4px;
+      }
+      .product .price {
+        font-size: 13px;
+        color: var(--gold);
+        font-weight: 700;
+        margin: 0 0 10px;
+      }
+      .product .btn {
+        padding: 9px 14px;
+        font-size: 11px;
+      }
+      .cart-link {
+        font-weight: 800;
+      }
+      .cart-section {
+        background: #f3e7d3;
+      }
+      .cart-layout {
+        display: grid;
+        grid-template-columns: 1.5fr 0.8fr;
+        gap: 22px;
+      }
+      .cart-items {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .cart-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 12px;
+      }
+      .cart-item img {
+        width: 72px;
+        height: 72px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+      .cart-item h4 {
+        margin: 0 0 4px;
+        font:
+          700 22px "Cormorant Garamond",
+          serif;
+      }
+      .cart-item p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .cart-actions {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .qty {
+        border: 1px solid var(--line);
+        background: #fff;
+        border-radius: 7px;
+        padding: 5px 9px;
+        cursor: pointer;
+      }
+      .remove {
+        border: 0;
+        background: none;
+        color: #a33;
+        cursor: pointer;
+        font-size: 12px;
+      }
+      .summary {
+        background: var(--teal);
+        color: #fff;
+        border-radius: 14px;
+        padding: 24px;
+        height: max-content;
+        position: sticky;
+        top: 100px;
+      }
+      .summary h3 {
+        font:
+          700 30px "Cormorant Garamond",
+          serif;
+        margin-top: 0;
+      }
+      .summary-row {
+        display: flex;
+        justify-content: space-between;
+        margin: 12px 0;
+        font-size: 13px;
+      }
+      .empty {
+        text-align: center;
+        padding: 35px;
+        background: #fff;
+        border: 1px dashed var(--line);
+        border-radius: 12px;
+        color: var(--muted);
+      }
+      @media (max-width: 700px) {
+        .cart-layout {
+          grid-template-columns: 1fr;
+        }
+        .summary {
+          position: static;
+        }
+        .cart-item {
+          align-items: flex-start;
+        }
+        .cart-actions {
+          margin-left: 0;
+        }
+        .cart-item h4 {
+          font-size: 19px;
+        }
+      }
+
+      .category-wrap {
+        position: relative;
+      }
+      .category-track {
+        display: flex;
+        gap: 13px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        padding: 4px 34px 15px;
+        scrollbar-width: none;
+      }
+      .category-track::-webkit-scrollbar {
+        display: none;
+      }
+      .category-track .card {
+        min-width: 150px;
+        flex: 0 0 calc((100% - 78px) / 7);
+        scroll-snap-align: start;
+        display: flex;
+        flex-direction: column;
+      }
+      .category-track .card img {
+        aspect-ratio: 4/3;
+        object-position: center;
+      }
+      .category-track .product .btn {
+        margin-top: auto;
+      }
+      .carousel-arrow {
+        position: absolute;
+        top: 42%;
+        transform: translateY(-50%);
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        border: 1px solid var(--line);
+        background: #fffaf1;
+        color: var(--teal);
+        box-shadow: 0 7px 18px rgba(0, 0, 0, 0.12);
+        z-index: 4;
+        cursor: pointer;
+        font-size: 20px;
+      }
+      .carousel-arrow.left {
+        left: 0;
+      }
+      .carousel-arrow.right {
+        right: 0;
+      }
+      @media (max-width: 1100px) {
+        .category-track .card {
+          flex-basis: calc((100% - 39px) / 4);
+        }
+      }
+      @media (max-width: 650px) {
+        .category-track .card {
+          flex-basis: calc((100% - 13px) / 2);
+        }
+        .gift .feature-content {
+          max-width: 65%;
+          padding: 25px 12px 25px 25px;
+        }
+      }
+
+      @media (max-width: 950px) {
+        .links {
+          display: none;
+        }
+        .mobile-menu {
+          display: block;
+        }
+        .nav .btn {
+          display: none;
+        }
+        .hero {
+          grid-template-columns: 1fr;
+        }
+        .hero-copy {
+          padding: 55px 7%;
+          min-height: 360px;
+        }
+        .hero-photo {
+          min-height: 330px;
+        }
+        .grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+        .strip {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 16px;
+        }
+        .offer-grid,
+        .feature-grid,
+        .about {
+          grid-template-columns: 1fr;
+        }
+        .foot {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 560px) {
+        .topbar {
+          font-size: 9px;
+        }
+        .topbar span:nth-child(2) {
+          display: none;
+        }
+        .brand strong {
+          font-size: 27px;
+        }
+        .brand img {
+          width: 48px;
+          height: 48px;
+        }
+        .hero h1 {
+          font-size: 54px;
+        }
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .section {
+          padding: 48px 5%;
+        }
+        .heading h2 {
+          font-size: 38px;
+        }
+        .feature-content {
+          max-width: 80%;
+          padding: 25px;
+        }
+        .feature h3 {
+          font-size: 31px;
+        }
+        .offer-grid {
+          grid-template-columns: 1fr;
+        }
+        .about img {
+          height: 240px;
+        }
+        .qualities {
+          grid-template-columns: 1fr;
+        }
+        .delivery {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .foot {
+          grid-template-columns: 1fr;
+        }
+        .copyright {
+          flex-direction: column;
+          gap: 8px;
+        }
+      }
+
+      /* Diwali + Dhanteras image panels: image text is part of the artwork, so no duplicate overlay text */
+      .seasonal-designs {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+      .seasonal-design {
+        display: block;
+        min-width: 0;
+        background: #fffaf1;
+        overflow: hidden;
+      }
+      .seasonal-design img {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1.30 / 1;
+        object-fit: cover;
+        transition: transform .35s ease;
+      }
+      .seasonal-design:hover img { transform: scale(1.015); }
+      .seasonal-offers {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        align-items: stretch;
+      }
+      .seasonal-offer {
+        display: block;
+        border: 1px solid rgba(185,134,53,.45);
+        border-radius: 12px;
+        overflow: hidden;
+        background: #fffaf1;
+        min-width: 0;
+        box-shadow: 0 6px 20px rgba(40,50,40,.05);
+        transition: transform .25s ease, box-shadow .25s ease;
+      }
+      .seasonal-offer:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+      .seasonal-offer img {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 2.20 / 1;
+        object-fit: cover;
+      }
+      @media (max-width: 900px) {
+        .seasonal-offers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .seasonal-design img { aspect-ratio: 1.05 / 1; }
+      }
+      @media (max-width: 560px) {
+        .seasonal-designs { grid-template-columns: 1fr; }
+        .seasonal-design img { aspect-ratio: 1.30 / 1; }
+        .seasonal-offers { grid-template-columns: 1fr; gap: 12px; }
+        .seasonal-offer img { aspect-ratio: 2.2 / 1; }
+      }
+
+    
+      .diwali-home-hero{width:100%;background:#fbf5e9;overflow:hidden;line-height:0}.diwali-home-hero a{display:block;width:100%}.diwali-home-hero img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;object-position:center}.diwali-product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:stretch}.diwali-product-grid .product{min-width:0;display:flex;flex-direction:column;align-items:center;text-align:center;padding-bottom:18px}.diwali-product-grid .product img{display:block;width:100%;height:245px;object-fit:cover;object-position:center}.diwali-product-grid .product h3{margin:16px 10px 5px;line-height:1.2}.diwali-product-grid .product .price{margin:4px 0 12px}.diwali-order-cta{margin-top:26px;display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:wrap;text-align:center}.diwali-order-cta p{margin:0;color:var(--teal)}@media(max-width:850px){.diwali-product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.diwali-product-grid .product img{height:220px}}@media(max-width:520px){.diwali-home-hero img{aspect-ratio:4/3;object-position:left center}.diwali-product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.diwali-product-grid .product img{height:155px}.diwali-product-grid .product h3{font-size:16px}.diwali-product-grid .btn{padding:10px 12px;font-size:12px}.diwali-order-cta{gap:10px}}
+
+      /* Diwali split hero: copy stays beside an automatic rotating photo carousel */
+      .diwali-split-hero {
+        display: grid;
+        grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+        min-height: 440px;
+        background: #fbf5e9;
+        overflow: hidden;
+        border-bottom: 1px solid rgba(185,134,53,.22);
+      }
+      .diwali-hero-copy {
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: clamp(28px, 5vw, 76px);
+        background:
+          radial-gradient(circle at 12% 12%, rgba(185,134,53,.12), transparent 34%),
+          repeating-linear-gradient(45deg, transparent 0 15px, rgba(185,134,53,.025) 15px 16px),
+          #fffaf1;
+      }
+      .diwali-mantra { color: #b98635; font-size: clamp(17px, 2vw, 23px); margin: 0 0 12px; letter-spacing: 1px; }
+      .diwali-kicker { color: #a7772b; letter-spacing: 2.5px; font-size: 11px; font-weight: 700; margin: 0 0 12px; }
+      .diwali-hero-copy h1 { color: #004744; font: 700 clamp(38px, 4.3vw, 66px)/.98 "Cormorant Garamond", Georgia, serif; letter-spacing: -1.2px; margin: 0 0 18px; }
+      .diwali-hero-copy h1 span { color: #b98635; }
+      .diwali-description { color: #3d4844; font-size: clamp(14px, 1.2vw, 17px); line-height: 1.7; max-width: 460px; margin: 0 0 24px; }
+      .diwali-hero-carousel { min-width: 0; position: relative; min-height: 440px; overflow: hidden; background: #073f39; }
+      .diwali-slide { position: absolute; inset: 0; display: block; opacity: 0; animation: mithasDiwaliFade 10s infinite; }
+      .diwali-slide img { display: block; width: 100%; height: 100%; min-height: 440px; object-fit: cover; object-position: center; }
+      .diwali-slide.slide-one { animation-delay: 0s; }
+      .diwali-slide.slide-two { animation-delay: 5s; }
+      .diwali-slide.slide-three { animation-delay: 0s; }
+      .diwali-slide.slide-four { animation-delay: 5s; }
+      @keyframes mithasDiwaliFade {
+        0% { opacity: 0; }
+        4% { opacity: 1; }
+        22% { opacity: 1; }
+        27% { opacity: 0; }
+        100% { opacity: 0; }
+      }
+      .diwali-slide-caption { position: absolute; z-index: 5; bottom: 18px; right: 18px; color: white; background: rgba(0,48,44,.78); border: 1px solid rgba(255,255,255,.35); border-radius: 999px; padding: 10px 16px; font-size: 12px; letter-spacing: .4px; pointer-events: none; }
+      @media (max-width: 760px) {
+        .diwali-split-hero { grid-template-columns: 1fr; }
+        .diwali-hero-copy { padding: 30px 22px; }
+        .diwali-hero-copy h1 { font-size: clamp(42px, 10vw, 58px); }
+        .diwali-hero-carousel, .diwali-slide img { min-height: 300px; height: 300px; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .diwali-slide { animation: none; opacity: 0; }
+        .diwali-slide.slide-one { opacity: 1; }
+      }
+
+    
+      /* Two-image Diwali slideshow supplied by the owner */
+      .diwali-slide.slide-one { animation: mithasDiwaliFadeTwo 10s infinite 0s; }
+      .diwali-slide.slide-two { animation: mithasDiwaliFadeTwo 10s infinite 5s; }
+      @keyframes mithasDiwaliFadeTwo {
+        0% { opacity: 0; }
+        5% { opacity: 1; }
+        45% { opacity: 1; }
+        50% { opacity: 0; }
+        100% { opacity: 0; }
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="topbar">
+      <span>☎ 7303345431</span
+      ><span>✉ <a href="mailto:Mithas@gmail.com">Mithas@gmail.com</a></span
+      ><span
+        >📍 13/2 Raghuveer Tiwari Chawl, Ashokvan, Shukla Compound, Dahisar
+        East</span
+      ><span>🛵 Home Delivery Available</span>
+    </div>
+
+    <nav class="nav">
+      <a class="brand" href="#home"
+        ><img src="assets/logo.jpg" alt="Mithas logo" />
+        <div>
+          <strong>MITHAS</strong><small>TRADITION MEETS TASTE</small>
+        </div></a
+      >
+      <div class="links">
+        <a href="#home">Home</a><a href="#about">About</a
+        ><a href="#sweets">Sweets</a><a href="#festive">Festive Specials</a
+        ><a href="#gifting">Gifting</a><a href="#offers">Offers</a
+        ><a href="#contact">Contact</a
+        ><a href="#cart" class="cart-link"
+          >Cart (<span id="cartCount">0</span>)</a
+        ><a
+          href="https://www.instagram.com/the_official_mithas?stkn=MWJuaWVhZ2JpMTNhMQ=="
+          target="_blank"
+          rel="noopener"
+          >Instagram</a
+        >
+      </div>
+      <a
+        class="btn"
+        href="https://wa.me/917303345431"
+        target="_blank"
+        rel="noopener"
+        >◉ WhatsApp</a
+      >
+      <button
+        class="mobile-menu"
+        onclick="document.querySelector('.links').classList.toggle('show')"
+      >
+        ☰
+      </button>
+    </nav>
+
+    <main id="home">
+      <section class="diwali-split-hero" aria-label="Mithas Diwali collection">
+        <div class="diwali-hero-copy">
+          <p class="diwali-mantra">॥ शुभ दीपावली ॥</p>
+          <p class="diwali-kicker">MITHAS — TRADITION MEETS TASTE</p>
+          <h1>Sweet Beginnings.<br><span>A Brighter Diwali.</span></h1>
+          <p class="diwali-description">Celebrate the Festival of Lights with traditional mithai, premium Kaju Katli and beautifully presented festive gift boxes.</p>
+          <a class="btn gold" href="#diwali-sweets">Explore Diwali Sweets →</a>
+        </div>
+        <div class="diwali-hero-carousel" aria-label="Rotating Mithas Diwali images">
+          <a class="diwali-slide slide-one" href="#diwali-sweets" aria-label="Explore Mithas Diwali sweets"><img src="assets/diwali-slide-1.jpg" alt="Mithas Diwali and Dhanteras sweets, Kaju Katli and festive gift box"></a>
+          <a class="diwali-slide slide-two" href="#diwali-sweets" aria-label="Explore Mithas sweets and brand"><img src="assets/diwali-slide-2.jpg" alt="Mithas logo and sweets made with tradition, pureness and love"></a>
+          <div class="diwali-slide-caption">Made for sharing. Remembered for sweetness.</div>
+        </div>
+        </div>
+      </section>
+
+      <section class="strip">
+        <div><b>✦</b>100% Fresh & Pure</div>
+        <div><b>✧</b>Wide Range of Sweets</div>
+        <div><b>◈</b>Hygienic Preparation</div>
+        <div><b>⌁</b>Home Delivery</div>
+        <div><b>◇</b>Perfect for Gifting</div>
+        <div><b>❖</b>Traditional Taste</div>
+      </section>
+
+      <section class="section" id="sweets">
+        <div class="heading">
+          <span>✦ MITHAS COLLECTION ✦</span>
+          <h2>Our Sweets</h2>
+          <p>A taste for every occasion.</p>
+        </div>
+        <div class="category-wrap">
+          <button
+            class="carousel-arrow left"
+            onclick="scrollCategories(-1)"
+            aria-label="Previous sweets"
+          >
+            ‹
+          </button>
+          <div class="category-track" id="categoryTrack">
+            <article class="card product">
+              <img src="assets/DIFF-MODAK.png" alt="Modaks" />
+              <h3>Mix Modaks</h3>
+              <p class="price">From ₹499</p>
+              <button
+                class="btn gold"
+                onclick="addToCart('Mix Modaks',499,'assets/DIFF-MODAK.png')"
+              >
+                Add to Cart
+              </button>
+            </article>
+            <article class="card product">
+              <img src="assets/Kaju-Katli.jpeg" alt="Kaju Katli" />
+              <h3>Kaju Katli</h3>
+              <p class="price">From ₹699/kg</p>
+              <button
+                class="btn gold"
+                onclick="addToCart('Kaju Katli',699,'assets/Kaju-Katli.jpeg')"
+              >
+                Add to Cart
+              </button>
+            </article>
+            <article class="card product">
+              <img src="assets/MILK.png" alt="Milk sweets" />
+              <h3>Milk Sweets</h3>
+              <p class="price">From ₹499/kg</p>
+              <button
+                class="btn gold"
+                onclick="addToCart('Milk Sweets',499,'assets/MILK.png')"
+              >
+                Add to Cart
+              </button>
+            </article>
+            <article class="card product">
+              <img src="assets/Gulab-jamun.png" alt="Gulab Jamun" />
+              <h3>Gulab Jamun</h3>
+              <p class="price">From ₹449/kg</p>
+              <button
+                class="btn gold"
+                onclick="addToCart('Gulab Jamun',449,'assets/Gulab-jamun.png')"
+              >
+                Add to Cart
+              </button>
+            </article>
+            <article class="card product">
+              <img src="assets/rasgulla.png" alt="Rasgulla" />
+              <h3>Rasgulla</h3>
+              <p class="price">From ₹499/kg</p>
+              <button
+                class="btn gold"
+                onclick="addToCart('Rasgulla',499,'assets/rasgulla.png')"
+              >
+                Add to Cart
+              </button>
+            </article>
+            <article class="card product">
+              <img src="assets/Dry-fruit.png" alt="Dry fruit sweets" />
+              <h3>Dry Fruit Sweets</h3>
+              <p class="price">From ₹799/kg</p>
+              <button
+                class="btn gold"
+                onclick="addToCart('Dry Fruit Sweets',799,'assets/Dry-fruit.png')"
+              >
+                Add to Cart
+              </button>
+            </article>
+            <article class="card product">
+              <img src="assets/UKDICHE-MODAK.png" alt="Ukadiche Modak" />
+              <h3>Ukadiche Modak</h3>
+              <p class="price">From ₹299/kg</p>
+              <button
+                class="btn gold"
+                onclick="addToCart('Ukadiche Modak',299,'assets/UKDICHE-MODAK.png')"
+              >
+                Add to Cart
+              </button>
+            </article>
+            <article class="card product">
+              <img src="assets/Modak.png" alt="Modak" />
+              <h3>Modak</h3>
+              <p class="price">From ₹599/kg</p>
+              <button
+                class="btn gold"
+                onclick="addToCart('Modak',599,'assets/Modak.png')"
+              >
+                Add to Cart
+              </button>
+            </article>
+          </div>
+          <button
+            class="carousel-arrow right"
+            onclick="scrollCategories(1)"
+            aria-label="Next sweets"
+          >
+            ›
+          </button>
+        </div>
+      </section>
+
+      <section class="section diwali-sweets" id="diwali-sweets"><div class="heading"><span>✦ THE DIWALI MITHAI EDIT ✦</span><h2>Diwali Sweets</h2><p>Share the light with traditional favourites, beautifully made for gifting.</p></div><div class="diwali-product-grid">
+<article class="card product"><img src="assets/Kaju-Katli.jpeg" alt="Kaju Katli"><h3>Kaju Katli</h3><p class="price">From ₹699/kg</p><button class="btn gold" onclick="addToCart('Kaju Katli',699,'assets/Kaju-Katli.jpeg')">Add to Cart</button></article>
+<article class="card product"><img src="assets/motichoor-ladoo.jpg" alt="Motichoor Ladoo"><h3>Motichoor Ladoo</h3><p class="price">From ₹499/kg</p><button class="btn gold" onclick="addToCart('Motichoor Ladoo',499,'assets/motichoor-ladoo.jpg')">Add to Cart</button></article>
+<article class="card product"><img src="assets/milk-sweets.jpg" alt="Mawa Barfi"><h3>Mawa Barfi</h3><p class="price">From ₹549/kg</p><button class="btn gold" onclick="addToCart('Mawa Barfi',549,'assets/milk-sweets.jpg')">Add to Cart</button></article>
+<article class="card product"><img src="assets/gulab-jamun.jpg" alt="Gulab Jamun"><h3>Gulab Jamun</h3><p class="price">From ₹449/kg</p><button class="btn gold" onclick="addToCart('Gulab Jamun',449,'assets/gulab-jamun.jpg')">Add to Cart</button></article>
+<article class="card product"><img src="assets/dry-fruit-sweets.jpg" alt="Dry Fruit Mithai"><h3>Dry Fruit Mithai</h3><p class="price">From ₹799/kg</p><button class="btn gold" onclick="addToCart('Dry Fruit Mithai',799,'assets/dry-fruit-sweets.jpg')">Add to Cart</button></article>
+<article class="card product"><img src="assets/cham-cham.jpg" alt="Cham Cham"><h3>Cham Cham</h3><p class="price">From ₹549/kg</p><button class="btn gold" onclick="addToCart('Cham Cham',549,'assets/cham-cham.jpg')">Add to Cart</button></article></div><div class="diwali-order-cta"><p>Making your festive gifting sweeter, one box at a time.</p><a class="btn gold" href="#offers">Explore Festive Offers →</a></div></section>
+
+      <section class="section festive" id="festive">
+        <div class="heading">
+          <span>✦ DIWALI & DHANTERAS COLLECTION ✦</span>
+          <h2>Celebrate Prosperity & Sweetness</h2>
+          <p>Traditional mithai, festive gifting and moments worth sharing.</p>
+        </div>
+        <div class="seasonal-designs">
+          <a class="seasonal-design" href="#offers" aria-label="Explore Dhanteras collection">
+            <img src="assets/dhanteras-hero.jpg" alt="Mithas Happy Dhanteras — kaju katli, gold coins and festive gifting">
+          </a>
+          <a class="seasonal-design" href="#offers" aria-label="Explore Diwali collection">
+            <img src="assets/diwali-hero.jpg" alt="Mithas Happy Diwali — festive lights and assorted sweets gift box">
+          </a>
+        </div>
+      </section>
+
+      <section class="section offers" id="offers">
+        <div class="heading">
+          <span>✦ DIWALI & DHANTERAS SPECIAL ✦</span>
+          <h2>Festive Offers</h2>
+          <p>Sweeter deals for brighter moments.</p>
+        </div>
+        <div class="seasonal-offers">
+          <a class="seasonal-offer" href="javascript:void(0)" onclick="orderWhatsApp('I want the Dhanteras special: Flat 10% off on festive gift boxes')">
+            <img src="assets/offer-dhanteras-giftbox.jpg" alt="Dhanteras special festive gift boxes">
+          </a>
+          <a class="seasonal-offer" href="javascript:void(0)" onclick="orderWhatsApp('I want the Diwali special: Buy 1 kg Kaju Katli, get 250 g free')">
+            <img src="assets/offer-kaju-katli.jpg" alt="Diwali special Kaju Katli offer">
+          </a>
+          <a class="seasonal-offer" href="javascript:void(0)" onclick="orderWhatsApp('I want the festive family assorted sweets box starting at ₹499')">
+            <img src="assets/offer-family-pack.jpg" alt="Festive family assorted sweets box">
+          </a>
+          <a class="seasonal-offer" href="javascript:void(0)" onclick="orderWhatsApp('I want the dry fruit sweets special: Flat 15% off')">
+            <img src="assets/offer-dry-fruit.jpg" alt="Premium dry fruit sweets offer">
+          </a>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="about">
+          <img
+            src="assets/Mithas-Big-Image.png"
+            alt="Mithas sweet shop branding"
+          />
+          <div>
+            <span
+              style="
+                color: var(--gold);
+                font-size: 12px;
+                letter-spacing: 3px;
+                font-weight: 800;
+              "
+              >TRADITION MEETS TASTE</span
+            >
+            <h2>About Mithas</h2>
+            <p>
+              At Mithas, we bring the rich heritage of Indian sweets to everyday
+              celebrations. From classic favourites to festive specialities, our
+              focus is simple: authentic flavour, beautiful presentation and
+              sweets made for sharing.
+            </p>
+            <div class="qualities">
+              <div class="quality">
+                ◉ <b>Freshly Made</b><br /><small>Prepared with care.</small>
+              </div>
+              <div class="quality">
+                ◌ <b>Quality Ingredients</b><br /><small
+                  >Selected for great taste.</small
+                >
+              </div>
+              <div class="quality">
+                ✦ <b>Festive Gifting</b><br /><small
+                  >Elegant boxes for occasions.</small
+                >
+              </div>
+              <div class="quality">
+                ⌁ <b>Home Delivery</b><br /><small
+                  >Fresh sweets to your doorstep.</small
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section cart-section" id="cart">
+        <div class="heading">
+          <span>✦ YOUR SELECTION ✦</span>
+          <h2>Your Cart</h2>
+          <p>Review your sweets before sending the order on WhatsApp.</p>
+        </div>
+        <div class="cart-layout">
+          <div id="cartItems" class="cart-items">
+            <div class="empty">
+              Your cart is empty. Add your favourite sweets from the collection
+              above.
+            </div>
+          </div>
+          <aside class="summary">
+            <h3>Order Summary</h3>
+            <div class="summary-row">
+              <span>Items</span><strong id="summaryItems">0</strong>
+            </div>
+            <div class="summary-row">
+              <span>Total</span><strong id="summaryTotal">₹0</strong>
+            </div>
+            <hr
+              style="border: 0; border-top: 1px solid rgba(255, 255, 255, 0.2)"
+            />
+            <p style="font-size: 12px; line-height: 1.6; opacity: 0.8">
+              No online payment. Send your cart to Mithas on WhatsApp and
+              complete payment directly with the shop.
+            </p>
+            <button
+              class="btn gold"
+              style="width: 100%"
+              onclick="checkoutWhatsApp()"
+            >
+              Send Cart on WhatsApp →
+            </button>
+          </aside>
+        </div>
+      </section>
+
+      <section class="delivery">
+        <div>
+          <h3>Home Delivery Available</h3>
+          <p>
+            Craving your favourite sweets? Get Mithas delivered fresh to your
+            doorstep in Dahisar East.
+          </p>
+        </div>
+        <button class="btn" onclick="orderWhatsApp()">
+          ◉ Order on WhatsApp
+        </button>
+      </section>
+    </main>
+
+    <footer id="contact">
+      <div class="foot">
+        <div>
+          <h3>MITHAS</h3>
+          <p>TRADITION MEETS TASTE</p>
+          <p>Good sweets. Brighter moments.</p>
+        </div>
+        <div>
+          <h3>Quick Links</h3>
+          <a href="#home">Home</a><a href="#about">About</a
+          ><a href="#sweets">Sweets</a><a href="#festive">Festive Specials</a
+          ><a href="#gifting">Gifting</a><a href="#offers">Offers</a>
+        </div>
+        <div>
+          <h3>Contact Us</h3>
+          <p>☎ <a href="tel:7303345431">7303345431</a></p>
+          <p>✉ <a href="mailto:Mithas@gmail.com">Mithas@gmail.com</a></p>
+          <p>
+            📍 13/2 Raghuveer Tiwari Chawl, Ashokvan, Shukla Compound, Dahisar
+            East
+          </p>
+        </div>
+        <div>
+          <h3>Connect With Us</h3>
+          <p>Home delivery available.</p>
+          <a
+            class="btn gold"
+            href="https://wa.me/917303345431"
+            target="_blank"
+            rel="noopener"
+            >◉ WhatsApp</a
+          >
+          <a href="mailto:Mithas@gmail.com" style="margin-top: 12px"
+            >✉ Email Us</a
+          >
+          <a
+            href="https://www.instagram.com/the_official_mithas?stkn=MWJuaWVhZ2JpMTNhMQ=="
+            target="_blank"
+            rel="noopener"
+            >◎ Instagram</a
+          >
+          <p style="margin-top: 15px">
+            For directions, search “Mithas” on Google Maps.
+          </p>
+        </div>
+      </div>
+      <div class="copyright">
+        <span>© 2026 Mithas. All Rights Reserved.</span
+        ><span>Tradition Meets Taste</span>
+      </div>
+    </footer>
+
+    <div class="modal" id="modal">
+      <div class="modal-box">
+        <button class="close" onclick="closeOrder()">×</button>
+        <h2>Order from Mithas</h2>
+        <p style="color: var(--muted); font-size: 13px">
+          Send your details on WhatsApp and we'll confirm availability and
+          delivery.
+        </p>
+        <label>Your Name</label
+        ><input id="name" placeholder="Enter your name" />
+        <label>What would you like?</label
+        ><textarea
+          id="items"
+          rows="3"
+          placeholder="e.g. 1 kg Kaju Katli, 12 Modaks"
+        ></textarea>
+        <label>Delivery Address</label
+        ><textarea
+          id="address"
+          rows="2"
+          placeholder="Your delivery address"
+        ></textarea>
+        <button
+          class="btn"
+          style="width: 100%; margin-top: 5px"
+          onclick="sendOrder()"
+        >
+          Send Order on WhatsApp →
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const heroSlides = [
+        "assets/hero-4k.png",
+        "assets/Ganesh-Festival-Gift-Box.png",
+        "assets/Mithas-Big-Image.png",
+      ];
+      let currentHero = 0;
+      function heroSlide(i) {
+        currentHero = i;
+        document.querySelector(".hero-photo").style.backgroundImage =
+          `url("${heroSlides[i]}")`;
+        document
+          .querySelectorAll(".hero-dot")
+          .forEach((d, n) => d.classList.toggle("active", n === i));
+      }
+      setInterval(() => heroSlide((currentHero + 1) % heroSlides.length), 5000);
+      function scrollCategories(dir) {
+        document
+          .getElementById("categoryTrack")
+          .scrollBy({ left: dir * 520, behavior: "smooth" });
+      }
+
+      let cart = JSON.parse(localStorage.getItem("mithasCart") || "[]");
+
+      function saveCart() {
+        localStorage.setItem("mithasCart", JSON.stringify(cart));
+        renderCart();
+      }
+      function addToCart(name, price, image) {
+        const existing = cart.find((i) => i.name === name);
+        if (existing) existing.qty += 1;
+        else cart.push({ name, price, image, qty: 1 });
+        saveCart();
+        document.getElementById("cart").scrollIntoView({ behavior: "smooth" });
+      }
+      function changeQty(index, delta) {
+        cart[index].qty += delta;
+        if (cart[index].qty <= 0) cart.splice(index, 1);
+        saveCart();
+      }
+      function removeItem(index) {
+        cart.splice(index, 1);
+        saveCart();
+      }
+      function renderCart() {
+        const wrap = document.getElementById("cartItems");
+        const count = cart.reduce((s, i) => s + i.qty, 0);
+        const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+        document.getElementById("cartCount").textContent = count;
+        document.getElementById("summaryItems").textContent = count;
+        document.getElementById("summaryTotal").textContent =
+          "₹" + total.toLocaleString("en-IN");
+        if (!cart.length) {
+          wrap.innerHTML =
+            '<div class="empty">Your cart is empty. Add your favourite sweets from the collection above.</div>';
+          return;
+        }
+        wrap.innerHTML = cart
+          .map(
+            (item, index) => `
+    <div class="cart-item">
+      <img src="${item.image}" alt="${item.name}">
+      <div><h4>${item.name}</h4><p>₹${item.price.toLocaleString("en-IN")} × ${item.qty} = <b>₹${(item.price * item.qty).toLocaleString("en-IN")}</b></p></div>
+      <div class="cart-actions">
+        <button class="qty" onclick="changeQty(${index},-1)">−</button>
+        <b>${item.qty}</b>
+        <button class="qty" onclick="changeQty(${index},1)">+</button>
+        <button class="remove" onclick="removeItem(${index})">Remove</button>
+      </div>
+    </div>`,
+          )
+          .join("");
+      }
+      function checkoutWhatsApp() {
+        if (!cart.length) {
+          alert("Your cart is empty.");
+          return;
+        }
+        const lines = cart
+          .map((i) => `${i.name} x${i.qty} = ₹${i.price * i.qty}`)
+          .join("\n");
+        const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+        const msg = `Hello Mithas! I want to place an order.\n\n${lines}\n\nEstimated Total: ₹${total}\n\nPlease confirm availability and delivery details.`;
+        window.open(
+          "https://wa.me/917303345431?text=" + encodeURIComponent(msg),
+          "_blank",
+        );
+      }
+      document.addEventListener("DOMContentLoaded", renderCart);
+    </script>
+    <script>
+      function orderWhatsApp(prefill = "") {
+        if (prefill) {
+          document.getElementById("items").value = prefill;
+        }
+        document.getElementById("modal").classList.add("open");
+      }
+      function closeOrder() {
+        document.getElementById("modal").classList.remove("open");
+      }
+      function sendOrder() {
+        const name = document.getElementById("name").value.trim();
+        const items = document.getElementById("items").value.trim();
+        const address = document.getElementById("address").value.trim();
+        if (!name || !items) {
+          alert("Please enter your name and order details.");
+          return;
+        }
+        const msg = `Hello Mithas!%0A%0AName: ${encodeURIComponent(name)}%0AOrder: ${encodeURIComponent(items)}%0ADelivery Address: ${encodeURIComponent(address || "Will share on WhatsApp")}`;
+        window.open(`https://wa.me/917303345431?text=${msg}`, "_blank");
+      }
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeOrder();
+      });
+      document.querySelector(".mobile-menu").addEventListener("click", () => {
+        document.querySelector(".links").style.display = "flex";
+        document.querySelector(".links").style.position = "absolute";
+        document.querySelector(".links").style.top = "82px";
+        document.querySelector(".links").style.left = "0";
+        document.querySelector(".links").style.right = "0";
+        document.querySelector(".links").style.padding = "20px";
+        document.querySelector(".links").style.background = "#fffaf1";
+        document.querySelector(".links").style.flexDirection = "column";
+      });
+    </script>
+  </body>
+</html>

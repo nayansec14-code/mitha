@@ -1,0 +1,12 @@
+MITHAS DIWALI WEBSITE — START HERE
+
+IMPORTANT: Extract the ENTIRE ZIP first. Do not open index.html inside WinRAR/7-Zip preview.
+
+1. Right-click Mithas_Diwali_Website_Files.zip and choose Extract All.
+2. Open the extracted Mithas_Diwali_Website folder.
+3. Keep index.html and the assets folder together in the same folder.
+4. Double-click index.html to preview in Chrome.
+
+If uploading to hosting, upload BOTH index.html and the complete assets folder (including every image inside it). Uploading only index.html will cause images to disappear.
+
+The website uses relative paths such as assets/logo.jpg and assets/diwali-main-banner.jpg. Do not rename the assets folder or individual image files.
